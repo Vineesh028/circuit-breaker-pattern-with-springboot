@@ -1,0 +1,17 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: ORDER-SERVICE
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 2
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
